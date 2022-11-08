@@ -1,3 +1,4 @@
+com\home\brewer\model\Cerveja.class
 com\home\brewer\controller\CervejasController.class
 com\home\brewer\config\init\AppInitializer.class
 com\home\brewer\config\WebConfig.class
