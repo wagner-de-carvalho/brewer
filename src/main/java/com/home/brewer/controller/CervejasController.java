@@ -15,17 +15,16 @@ import com.home.brewer.model.Cerveja;
 public class CervejasController {
 
 	@RequestMapping("/cervejas/novo")
-	public String novo() {
+	public String novo(Cerveja cerveja) {
 		return "cerveja/CadastroCerveja";
 	}
 
 	@RequestMapping(value = "/cervejas/novo", method = RequestMethod.POST)
 	public String cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attr) {
 		if (result.hasErrors()) {
-			model.addAttribute("mensagem", "Erro no formulário!\n");
-			return "cerveja/CadastroCerveja";
+			return novo(cerveja);
 		}
-		
+
 		attr.addFlashAttribute("mensagem", "Cerveja gravada com sucesso!");
 		System.out.println("Cadastro Cerveja >>> " + cerveja.getSku() + ", " + cerveja.getNome());
 		return "redirect:/cervejas/novo";
