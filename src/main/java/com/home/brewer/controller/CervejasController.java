@@ -24,7 +24,6 @@ public class CervejasController {
 		if (result.hasErrors()) {
 			return novo(cerveja);
 		}
-
 		attr.addFlashAttribute("mensagem", "Cerveja gravada com sucesso!");
 		System.out.println("Cadastro Cerveja >>> " + cerveja.getSku() + ", " + cerveja.getNome());
 		return "redirect:/cervejas/novo";
