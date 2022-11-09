@@ -56,5 +56,10 @@ public class Cerveja {
 		Cerveja other = (Cerveja) obj;
 		return Objects.equals(sku, other.sku);
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Nome: %s, SKU: %s, descrição: %s", this.nome, this.sku, this.descricao);
+	}
 
 }
