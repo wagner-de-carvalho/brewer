@@ -31,7 +31,7 @@ public class CervejasController {
 	
 	@RequestMapping("/cervejas/cadastro")
 	public String cadastro() {
-		return "cidade/CadastroCidade";
+		return "estilo/CadastroEstilo";
 	}
 	
 }
