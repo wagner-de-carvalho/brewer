@@ -37,6 +37,12 @@
 		<!-- Logging -->
 		<log4j.version>2.6</log4j.version>
 		<jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
+
+		<!-- JPA/Hibernate -->
+		<hibernate.version>5.1.0.Final</hibernate.version>
+		
+		<!-- Lombok -->
+		<lombok.version>1.18.22</lombok.version>
 	</properties>
 
 	<build>
@@ -144,13 +150,38 @@
 			<version>${jcl-over-slf4j.version}</version>
 		</dependency>
 
+		<!-- Flyway -->
+		<!--<dependency>
+		    <groupId>org.flywaydb</groupId>
+		    <artifactId>flyway-core</artifactId>
+		    <version>9.0.4</version>
+		    <scope>compile</scope>
+		</dependency>-->
 
-		<!--  API Java 8 Data e Tempo -->
+		<!-- JPA/HIBERNATE -->
 		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-java8time</artifactId>
-			<version>3.0.4.RELEASE</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+			<scope>compile</scope>
 		</dependency>
+
+		<!-- HIBERNATE - Java 8 Support -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+			<version>${hibernate.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 	</dependencies>
 </project>

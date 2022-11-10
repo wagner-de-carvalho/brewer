@@ -1,12 +1,32 @@
 package com.home.brewer.model;
 
-import java.util.Objects;
+import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import lombok.Data;
+
+@Entity
+@Table(name = "cerveja")
+@Data
 public class Cerveja {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codigo;
+
 	@NotBlank(message = "SKU é obrigatório")
 	private String sku;
 
@@ -16,50 +36,24 @@ public class Cerveja {
 	@Size(min = 1, max = 50, message = "O tamanho da descrição deve estar entre 1 e 50")
 	private String descricao;
 
-	public String getSku() {
-		return sku;
-	}
+	private BigDecimal valor;
 
-	public void setSku(String sku) {
-		this.sku = sku;
-	}
+	@Column(name = "teor_alcoolico")
+	private BigDecimal teorAlcoolico;
 
-	public String getNome() {
-		return nome;
-	}
+	private BigDecimal comissao;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	@Column(name = "quantidade_estoque")
+	private Integer quantidadeEstoque;
 
-	public String getDescricao() {
-		return descricao;
-	}
+	@Enumerated(EnumType.STRING)
+	private Origem origem;
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	@Enumerated(EnumType.STRING)
+	private Sabor sabor;
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(sku);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cerveja other = (Cerveja) obj;
-		return Objects.equals(sku, other.sku);
-	}
-	
-	@Override
-	public String toString() {
-		return String.format("Nome: %s, SKU: %s, descrição: %s", this.nome, this.sku, this.descricao);
-	}
+	@ManyToOne
+	@JoinColumn(name = "codigo_estilo")
+	private Estilo estilo;
 
 }
