@@ -1,4 +1,9 @@
-com\home\brewer\model\Cerveja.class
-com\home\brewer\controller\CervejasController.class
+com\home\brewer\repository\Cervejas.class
+com\home\brewer\config\JPAConfig.class
 com\home\brewer\config\init\AppInitializer.class
+com\home\brewer\model\Sabor.class
+com\home\brewer\controller\CervejasController.class
 com\home\brewer\config\WebConfig.class
+com\home\brewer\model\Cerveja.class
+com\home\brewer\model\Origem.class
+com\home\brewer\model\Estilo.class
